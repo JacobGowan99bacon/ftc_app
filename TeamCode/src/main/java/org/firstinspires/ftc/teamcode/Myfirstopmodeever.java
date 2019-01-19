@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 package org.firstinspires.ftc.teamcode;
 
+=======
+>>>>>>> f4a0baf878e4b6f2e9084dd304851743a68307dc
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
