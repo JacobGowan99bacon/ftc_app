@@ -11,9 +11,9 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 
-@Autonomous(name="autonomousrex", group="Pushbot")
+@Autonomous(name="Autonomousjustincase", group="Pushbot")
 //@Disabled
-public class Autotonomousrex extends LinearOpMode {
+public class Autotonomousjustincase extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
