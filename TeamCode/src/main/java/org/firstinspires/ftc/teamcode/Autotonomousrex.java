@@ -25,7 +25,7 @@ public class Autotonomousrex extends LinearOpMode {
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 0.6;
+    static final double     DRIVE_SPEED             = 0.5;
     static final double     TURN_SPEED              = 0.5;
     //private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
@@ -56,12 +56,17 @@ public class Autotonomousrex extends LinearOpMode {
 
 
         // Step 1:  Drive forward for 3 seconds
-                while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+                while (opModeIsActive() && (runtime.seconds() < 1.5)) {
                     telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                     leftDrive.setPower(DRIVE_SPEED);
                     rightDrive.setPower(DRIVE_SPEED);
                 }
+/*<<<<<<< HEAD
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+=======
+>>>>>>> parent of 0d3a954... i made it move the linear  slide for a longer time
 
        /* // Step 2:  Spin right for 1.3 seconds
         robot.leftDrive.setPower(TURN_SPEED);
@@ -82,8 +87,8 @@ public class Autotonomousrex extends LinearOpMode {
         }*/
 
                 // Step 4:  Stop and close the claw.
-                robot.leftDrive.setPower(0);
-                robot.rightDrive.setPower(0);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
 
 
                 telemetry.addData("Path", "Complete");
