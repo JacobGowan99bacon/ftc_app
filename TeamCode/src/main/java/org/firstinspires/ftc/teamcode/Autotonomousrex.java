@@ -44,8 +44,8 @@ public class Autotonomousrex extends LinearOpMode {
 
             // Most robots need the motor on one side to be reversed to drive forward
             // Reverse the motor that runs backwards when connected directly to the battery
-            leftDrive.setDirection(DcMotor.Direction.REVERSE);
-            rightDrive.setDirection(DcMotor.Direction.FORWARD);
+            leftDrive.setDirection(DcMotor.Direction.FORWARD) ;
+            rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
             // Wait for the game to start (driver presses PLAY)
             waitForStart();
@@ -56,37 +56,13 @@ public class Autotonomousrex extends LinearOpMode {
 
 
         // Step 1:  Drive forward for 3 seconds
-                while (opModeIsActive() && (runtime.seconds() < 1.5)) {
+                while (opModeIsActive() && (runtime.seconds() < 3.0)) {
                     telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                     leftDrive.setPower(DRIVE_SPEED);
                     rightDrive.setPower(DRIVE_SPEED);
                 }
-/*<<<<<<< HEAD
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-=======
->>>>>>> parent of 0d3a954... i made it move the linear  slide for a longer time
 
-       /* // Step 2:  Spin right for 1.3 seconds
-        robot.leftDrive.setPower(TURN_SPEED);
-        robot.rightDrive.setPower(-TURN_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        // Step 3:  Drive Backwards for 1 Second
-        robot.leftDrive.setPower(-FORWARD_SPEED);
-        robot.rightDrive.setPower(-FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }*/
-
-                // Step 4:  Stop and close the claw.
                 leftDrive.setPower(0);
                 rightDrive.setPower(0);
 
