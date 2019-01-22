@@ -67,7 +67,7 @@ public class Autotonomousrex extends LinearOpMode {
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
-        sleep(1000);
+        sleep(250);
         // Setup a variable for each drive wheel to save power level for telemetry
 
             telemetry.addData("Status", "Initialized");
