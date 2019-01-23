@@ -57,24 +57,6 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
         sleep(250);
 
 
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(DRIVE_SPEED);
-            rightDrive.setPower(DRIVE_SPEED);
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(250);
-
-    }
-}
-
 
 
 
