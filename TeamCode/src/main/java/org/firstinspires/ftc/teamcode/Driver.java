@@ -12,6 +12,8 @@ public class Driver extends LinearOpMode {
     // public void Driver() {
     private DcMotor leftDrive;
     private DcMotor rightDrive;
+    private DcMotor leftSlide;
+    private DcMotor rightSlide;
     // private Gamepad gamepad1 = new Gamepad;
 
 
@@ -19,11 +21,13 @@ public class Driver extends LinearOpMode {
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
-        leftDrive = hardwareMap.get(DcMotor.class, "linearslideleft");
-        rightDrive = hardwareMap.get(DcMotor.class, "linearslideright");
+        leftSlide = hardwareMap.get(DcMotor.class, "linearslideleft");
+        rightSlide = hardwareMap.get(DcMotor.class, "linearslideright");
 
-        leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
+        rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+        leftSlide.setDirection(DcMotor.Direction.FORWARD);
+        rightSlide.setDirection(DcMotor.Direction.REVERSE);
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -31,8 +35,13 @@ public class Driver extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
             double power = gamepad2.right_stick_y;
-            leftDrive.setPower(power);
-            rightDrive.setPower(power);
+            double rightmotorpower = gamepad1.right_stick_y;
+            double leftmotorpower = gamepad1.left_stick_y;
+            leftSlide.setPower(power);
+            rightSlide.setPower(power);
+
+            leftDrive.setPower(leftmotorpower);
+            rightDrive.setPower(rightmotorpower);
             telemetry.addData("Status", "Running");
             telemetry.update();
 
