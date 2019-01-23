@@ -30,7 +30,7 @@ public class Driver extends LinearOpMode {
         rightSlide.setDirection(DcMotor.Direction.REVERSE);
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
 
 
         // Wait for the game to start (driver presses PLAY)
