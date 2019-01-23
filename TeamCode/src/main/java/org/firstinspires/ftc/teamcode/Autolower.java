@@ -22,21 +22,31 @@ public class Autolower extends LinearOpMode {
     static final double WHEEL_DIAMETER_INCHES = 4.0;     // For figuring circumference
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double DRIVE_SPEED = 0.5;
+    static final double SLIDE_SPEED = 0.5;
+    static final double DRIVE_SPEED = 0.2;
     static final double TURN_SPEED = 0.5;
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
+    private DcMotor rightSlide = null;
+    private DcMotor leftSlide = null;
+
 
     @Override
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-        leftDrive = hardwareMap.get(DcMotor.class, "linearslideleft");
-        rightDrive = hardwareMap.get(DcMotor.class, "linearslideright");
+        leftSlide = hardwareMap.get(DcMotor.class, "linearslideleft");
+        rightSlide = hardwareMap.get(DcMotor.class, "linearslideright");
+        leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
+        rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+
+
+        leftSlide.setDirection(DcMotor.Direction.REVERSE);
+        rightSlide.setDirection(DcMotor.Direction.FORWARD);
 
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
         waitForStart();
         runtime.reset();
 
@@ -44,18 +54,31 @@ public class Autolower extends LinearOpMode {
         while (opModeIsActive() && (runtime.seconds() < 4.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
-            leftDrive.setPower(DRIVE_SPEED);
-            rightDrive.setPower(DRIVE_SPEED);
+            leftSlide.setPower(SLIDE_SPEED);
+            rightSlide.setPower(SLIDE_SPEED);
         }
 
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
+        leftSlide.setPower(0);
+        rightSlide.setPower(0);
 
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
         sleep(250);
 
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(DRIVE_SPEED);
+            rightDrive.setPower(DRIVE_SPEED);
+
+
+        } telemetry.addData("Path", "Complete");
+        telemetry.update();
     }
 }
+
+
+
 
