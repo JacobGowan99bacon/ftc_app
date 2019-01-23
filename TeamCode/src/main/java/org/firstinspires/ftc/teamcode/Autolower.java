@@ -1,17 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 
-@Autonomous(name="Autonomousrex", group="Pushbot")
-//@Disabled
-public class Autonomousrex extends LinearOpMode {
+@Autonomous(name="Autolower", group="Pushbot")
+public class Autolower extends LinearOpMode {
 
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
@@ -31,10 +32,8 @@ public class Autonomousrex extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-
         leftDrive = hardwareMap.get(DcMotor.class, "linearslideleft");
         rightDrive = hardwareMap.get(DcMotor.class, "linearslideright");
-
 
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -57,36 +56,6 @@ public class Autonomousrex extends LinearOpMode {
         telemetry.update();
         sleep(250);
 
-
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(DRIVE_SPEED);
-            rightDrive.setPower(DRIVE_SPEED);
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(250);
-
-        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(DRIVE_SPEED);
-            rightDrive.setPower(DRIVE_SPEED);
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(250);
-
     }
 }
+
