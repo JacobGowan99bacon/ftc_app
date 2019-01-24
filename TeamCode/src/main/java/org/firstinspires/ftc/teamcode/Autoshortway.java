@@ -69,7 +69,7 @@ public class Autoshortway extends LinearOpMode {
         sleep(250);
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.5)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             leftDrive.setPower(LANDER_SPEED);
@@ -92,7 +92,7 @@ public class Autoshortway extends LinearOpMode {
 
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             leftDrive.setPower(-LANDER_SPEED);
@@ -108,11 +108,11 @@ public class Autoshortway extends LinearOpMode {
 
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 0.8)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
-            leftDrive.setPower(-TURN_SPEED);
-            rightDrive.setPower(TURN_SPEED);
+            leftDrive.setPower(TURN_SPEED);
+            rightDrive.setPower(-TURN_SPEED);
 
 
 
