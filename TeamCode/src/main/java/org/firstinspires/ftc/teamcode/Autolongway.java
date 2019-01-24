@@ -23,7 +23,9 @@ public class Autolongway extends LinearOpMode {
     static final double COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double SLIDE_SPEED = 0.5;
-    static final double DRIVE_SPEED = 0.2;
+    static final double LANDER_SPEED = 0.2;
+    static final double MINERAL_SPEED = 0.5;
+    static final double CRATER_SPEED = 1;
     static final double TURN_SPEED = 0.5;
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
@@ -67,17 +69,100 @@ public class Autolongway extends LinearOpMode {
         sleep(250);
 
         runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(LANDER_SPEED);
+            rightDrive.setPower(LANDER_SPEED);
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftSlide.setPower(-SLIDE_SPEED);
+            rightSlide.setPower(-SLIDE_SPEED);
+
+        }
+
+        leftSlide.setPower(0);
+        rightSlide.setPower(0);
+
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 2.5)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(-LANDER_SPEED);
+            rightDrive.setPower(-LANDER_SPEED);
+
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+        sleep(250);
+
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.6)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(TURN_SPEED);
+            rightDrive.setPower(-TURN_SPEED);
+
+
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+        runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
-            leftDrive.setPower(DRIVE_SPEED);
-            rightDrive.setPower(DRIVE_SPEED);
+            leftDrive.setPower(MINERAL_SPEED);
+            rightDrive.setPower(MINERAL_SPEED);
 
+        }
 
-        } telemetry.addData("Path", "Complete");
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+        sleep(250);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(-TURN_SPEED);
+            rightDrive.setPower(TURN_SPEED);
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+        sleep(250);
+
+        runtime.reset();
+        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
+            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+            leftDrive.setPower(CRATER_SPEED);
+            rightDrive.setPower(CRATER_SPEED);
+        }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+        sleep(250);
+
+        telemetry.addData("Path", "Complete");
         telemetry.update();
     }
 }
+
 
 
 

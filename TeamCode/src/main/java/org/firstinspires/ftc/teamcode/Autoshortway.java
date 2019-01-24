@@ -74,9 +74,11 @@ public class Autoshortway extends LinearOpMode {
             telemetry.update();
             leftDrive.setPower(LANDER_SPEED);
             rightDrive.setPower(LANDER_SPEED);
-
-
         }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 4.0)) {
