@@ -87,6 +87,10 @@ public class Autoshortway extends LinearOpMode {
 
         }
 
+        leftSlide.setPower(0);
+        rightSlide.setPower(0);
+
+
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 4.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
@@ -96,8 +100,15 @@ public class Autoshortway extends LinearOpMode {
 
         }
 
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+        sleep(250);
+
+
+
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             leftDrive.setPower(-TURN_SPEED);
@@ -106,6 +117,10 @@ public class Autoshortway extends LinearOpMode {
 
 
         }
+
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
