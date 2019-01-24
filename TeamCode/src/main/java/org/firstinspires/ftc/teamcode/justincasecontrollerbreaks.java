@@ -14,6 +14,8 @@ public class justincasecontrollerbreaks extends LinearOpMode {
     private DcMotor rightDrive;
     private DcMotor leftSlide;
     private DcMotor rightSlide;
+    private DcMotor rightreverse;
+    private DcMotor leftreverse;
 
 
     @Override
@@ -25,11 +27,23 @@ public class justincasecontrollerbreaks extends LinearOpMode {
 
         leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+
+        leftreverse = hardwareMap.get(DcMotor.class, "left_Drive");
+        rightreverse = hardwareMap.get(DcMotor.class, "right_drive");
+
+
+
+
         leftSlide.setDirection(DcMotor.Direction.FORWARD);
         rightSlide.setDirection(DcMotor.Direction.REVERSE);
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
+
+        leftreverse.setDirection(DcMotor.Direction.FORWARD);
+        rightreverse.setDirection(DcMotor.Direction.REVERSE);
+
+
 
 
         waitForStart();
@@ -38,11 +52,17 @@ public class justincasecontrollerbreaks extends LinearOpMode {
             double power = gamepad1.right_stick_y;
             double rightmotorpower = gamepad1.right_trigger;
             double leftmotorpower = gamepad1.left_trigger;
+            boolean rightmotorreverse = gamepad1.right_bumper;
+            boolean leftmotorreverse = gamepad1.left_bumper;
+
             leftSlide.setPower(power);
             rightSlide.setPower(power);
 
             leftDrive.setPower(leftmotorpower);
             rightDrive.setPower(rightmotorpower);
+
+            leftreverse.setPower(leftmotorpower);
+            rightreverse.setPower(rightmotorpower);
             telemetry.addData("Status", "Running");
             telemetry.update();
 
