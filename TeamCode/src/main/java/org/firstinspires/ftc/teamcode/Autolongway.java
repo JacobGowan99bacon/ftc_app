@@ -135,7 +135,7 @@ public class Autolongway extends LinearOpMode {
         sleep(250);
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 1.3)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             leftDrive.setPower(-TURN_SPEED);
@@ -150,8 +150,8 @@ public class Autolongway extends LinearOpMode {
         while (opModeIsActive() && (runtime.seconds() < 3.0)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
-            leftDrive.setPower(CRATER_SPEED);
-            rightDrive.setPower(CRATER_SPEED);
+            leftDrive.setPower(-CRATER_SPEED);
+            rightDrive.setPower(-CRATER_SPEED);
         }
 
         leftDrive.setPower(0);
