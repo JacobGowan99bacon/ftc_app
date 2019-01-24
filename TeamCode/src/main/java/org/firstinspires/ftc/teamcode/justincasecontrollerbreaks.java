@@ -28,7 +28,7 @@ public class justincasecontrollerbreaks extends LinearOpMode {
         leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
 
-        leftreverse = hardwareMap.get(DcMotor.class, "left_Drive");
+        leftreverse = hardwareMap.get(DcMotor.class, "left_drive");
         rightreverse = hardwareMap.get(DcMotor.class, "right_drive");
 
 
