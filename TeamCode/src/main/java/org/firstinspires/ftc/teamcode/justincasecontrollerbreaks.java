@@ -44,10 +44,14 @@ public class justincasecontrollerbreaks extends LinearOpMode {
         while (opModeIsActive()) {
             double rightmotorpower = gamepad1.right_stick_y;
             double leftmotorpower = gamepad1.left_stick_y;
-            double power = gamepad1.left_stick_x;
-            leftSlide.setPower(power);
-            rightSlide.setPower(power);
-
+            if (gamepad1.a) {
+                // put motors in reverse
+            } else if (gamepad1.x) {
+                // put motors in forward
+            } else {
+                // stop motors
+            }
+            
             leftDrive.setPower(leftmotorpower);
             rightDrive.setPower(rightmotorpower);
             telemetry.addData("Status", "Running");
