@@ -50,63 +50,6 @@ public class Autolongway extends LinearOpMode {
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
         waitForStart();
-        runtime.reset();
-
-
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftSlide.setPower(SLIDE_SPEED);
-            rightSlide.setPower(SLIDE_SPEED);
-        }
-
-        leftSlide.setPower(0);
-        rightSlide.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(250);
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.4)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(LANDER_SPEED);
-            rightDrive.setPower(LANDER_SPEED);
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftSlide.setPower(-SLIDE_SPEED);
-            rightSlide.setPower(-SLIDE_SPEED);
-
-        }
-
-        leftSlide.setPower(0);
-        rightSlide.setPower(0);
-
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.7)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(-LANDER_SPEED);
-            rightDrive.setPower(-LANDER_SPEED);
-
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-        sleep(250);
-
 
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.9)) {

@@ -53,61 +53,6 @@ public class Autoshortway extends LinearOpMode {
         runtime.reset();
 
 
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftSlide.setPower(SLIDE_SPEED);
-            rightSlide.setPower(SLIDE_SPEED);
-        }
-
-        leftSlide.setPower(0);
-        rightSlide.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        sleep(250);
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.3)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(LANDER_SPEED);
-            rightDrive.setPower(LANDER_SPEED);
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 4.0)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftSlide.setPower(-SLIDE_SPEED);
-            rightSlide.setPower(-SLIDE_SPEED);
-
-        }
-
-        leftSlide.setPower(0);
-        rightSlide.setPower(0);
-
-
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 0.7)) {
-            telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-            leftDrive.setPower(-LANDER_SPEED);
-            rightDrive.setPower(-LANDER_SPEED);
-
-        }
-
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-        sleep(250);
-
-
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 0.78)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
