@@ -11,8 +11,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 
-@Autonomous(name="Autolongway", group="Pushbot")
-public class Autolongway extends LinearOpMode {
+@Autonomous(name="Autodepotside", group="Pushbot")
+public class Autodepotside extends LinearOpMode {
 
     HardwarePushbot robot = new HardwarePushbot();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
