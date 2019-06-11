@@ -21,7 +21,7 @@ public class Driver extends LinearOpMode {
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
-        
+
         leftSlide = hardwareMap.get(DcMotor.class, "linearslideleft");
         rightSlide = hardwareMap.get(DcMotor.class, "linearslideright");
 
