@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-@TeleOp(name="justincasecontrollerbreaks", group="Linear Opmode")
+@TeleOp(name="justincasewithoutslide", group="Linear Opmode")
 public class justincasewithoutslide extends LinearOpMode {
 
     // public void Driver() {
