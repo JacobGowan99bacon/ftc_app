@@ -12,21 +12,16 @@ public class driverwithoutslide extends LinearOpMode {
     // public void Driver() {
     private DcMotor leftDrive;
     private DcMotor rightDrive;
-    private DcMotor leftSlide;
-    private DcMotor rightSlide;
-    // private Gamepad gamepad1 = new Gamepad;
 
+    // private Gamepad gamepad1 = new Gamepad;
 
     @Override
     public void runOpMode() {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-
-
         leftDrive = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -40,8 +35,6 @@ public class driverwithoutslide extends LinearOpMode {
             double power = gamepad2.right_stick_y;
             double rightmotorpower = gamepad1.right_stick_y;
             double leftmotorpower = gamepad1.left_stick_y;
-            leftSlide.setPower(power);
-            rightSlide.setPower(power);
 
             leftDrive.setPower(leftmotorpower);
             rightDrive.setPower(rightmotorpower);
