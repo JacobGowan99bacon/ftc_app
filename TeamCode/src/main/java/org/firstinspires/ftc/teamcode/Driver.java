@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-@TeleOp(name="driverwithoutslide", group="Linear Opmode")
-public class driverwithoutslide extends LinearOpMode {
+@TeleOp(name="Driver", group="Linear Opmode")
+public class Driver extends LinearOpMode {
 
     // public void Driver() {
     private DcMotor leftDrive;
