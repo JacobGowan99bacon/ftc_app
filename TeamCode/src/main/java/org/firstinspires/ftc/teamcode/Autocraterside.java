@@ -67,7 +67,7 @@ public class Autocraterside extends LinearOpMode {
         rightDrive.setPower(0);
 
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
+        while (opModeIsActive() && (runtime.seconds() < 2.2)) {
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
             leftDrive.setPower(CRATER_SPEED);
